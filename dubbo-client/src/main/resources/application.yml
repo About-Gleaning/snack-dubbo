@@ -1,0 +1,10 @@
+#基础配置
+server:
+  port: 8080
+
+#dubbo配置
+dubbo:
+  application:
+    name: dubbo-consumer
+  registry:
+    address: 127.0.0.1:2181

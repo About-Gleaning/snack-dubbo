@@ -1,9 +1,9 @@
 package com.liurui;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * @ClassName DubboServerApplication
@@ -11,9 +11,13 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Author liurui
  * @Date 2018/10/5 下午8:30
  **/
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
-@EnableDubboConfiguration
+@SpringBootApplication
+@MapperScan("com.liurui.dao")
+@ImportResource({"classpath:dubbo-provider.xml"})
 public class DubboServerApplication {
+
+//    private static final Logger logger = LoggerFactory.getLogger(DubboServerApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(DubboServerApplication.class, args);
     }

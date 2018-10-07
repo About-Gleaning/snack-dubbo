@@ -1,9 +1,9 @@
 package com.liurui;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * @ClassName DubboClientApplication
@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Author liurui
  * @Date 2018/10/5 下午8:33
  **/
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
-@EnableDubboConfiguration
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@ImportResource({"classpath:dubbo-consumer.xml"})
 public class DubboClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(DubboClientApplication.class, args);

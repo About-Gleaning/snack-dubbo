@@ -1,5 +1,7 @@
 package com.liurui.server;
 
+import com.liurui.entity.UserInfo;
+
 /**
  * @ClassName TestServer
  * @Description TODO
@@ -8,4 +10,5 @@ package com.liurui.server;
  **/
 public interface TestServer {
     String sayHello(String str);
+    Integer saveUserInfo(UserInfo userInfo);
 }
