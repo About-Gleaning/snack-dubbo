@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  * @ClassName DubboServerApplication
- * @Description TODO
+ * @Description 启动类，@MapperScan：指定扫描路径，有@MyBatis注解的类会被扫描
  * @Author liurui
  * @Date 2018/10/5 下午8:30
  **/

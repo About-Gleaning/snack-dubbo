@@ -8,13 +8,16 @@
         <!-- optional，旨在创建class时，对注释进行控制 -->
         <commentGenerator>
             <property name="suppressDate" value="true"/>
-            <property name="suppressAllComments" value="true" />
+            <property name="suppressAllComments" value="false" />
         </commentGenerator>
 
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/snack?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
                         userId="root" password="liurui"/>
 
+        <!-- 默认false 把JDBC DECTMAL 和 NUMERIC 类型解析为  Integer true
+            把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal-->
+        <!-- 类型转换器或者加类型解析器-->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
@@ -46,7 +49,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="user_info" domainObjectName="UserInfo" enableCountByExample="false"
+        <table tableName="t_user_additional_info" domainObjectName="UserAdditionalInfo" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
     </context>
