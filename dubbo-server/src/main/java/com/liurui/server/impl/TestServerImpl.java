@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @ClassName TestServerImpl
  * @Description TODO
@@ -29,8 +31,20 @@ public class TestServerImpl implements TestServer {
 
     @Override
     public Integer saveUserInfo(UserInfo userInfo) {
-        userInfo.setId(UuidUtils.get32UUID());
-        return userInfoMapper.insert(userInfo);
+        try {
+            userInfo.setId(UuidUtils.get32UUID());
+            return userInfoMapper.insert(userInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserInfo> getList() {
+        UserInfo user = userInfoMapper.selectByPrimaryKey("5e7a89031f5a4e859f382f8e4502a79a");
+        List<UserInfo> list = userInfoMapper.selectList(null);
+        return list;
     }
 
 

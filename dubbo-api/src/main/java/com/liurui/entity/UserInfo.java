@@ -1,8 +1,16 @@
 package com.liurui.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
+@TableName(value = "t_user_info")
 public class UserInfo implements Serializable {
+
+    @TableId(value = "id")
     private String id;
 
     private String name;
@@ -13,15 +21,12 @@ public class UserInfo implements Serializable {
 
     private Integer age;
 
-    public UserInfo(String name, String phone, Integer sex, Integer age) {
+    public UserInfo(String id, String name, String phone, Integer sex, Integer age) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.sex = sex;
         this.age = age;
-    }
-
-    public UserInfo() {
-        super();
     }
 
     public String getId() {
@@ -29,7 +34,7 @@ public class UserInfo implements Serializable {
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getName() {
@@ -37,7 +42,7 @@ public class UserInfo implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getPhone() {
@@ -45,7 +50,7 @@ public class UserInfo implements Serializable {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public Integer getSex() {

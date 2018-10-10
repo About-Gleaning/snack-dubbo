@@ -1,5 +1,7 @@
 package com.liurui.utils;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @Author liurui
  * @Date 2018/10/7 上午8:38
  **/
+@Data
 public class ResultBean implements Serializable {
 
     private ErrorCodeType errorCode;

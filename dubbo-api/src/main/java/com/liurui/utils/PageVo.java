@@ -1,6 +1,7 @@
 package com.liurui.utils;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
 import java.util.List;
 
 /**
@@ -9,41 +10,50 @@ import java.util.List;
  * @Author liurui
  * @Date 2018/10/8 上午10:09
  **/
-public class PageVo<T> implements Serializable {
-    private Integer count;
-    private Integer pageSize;
-    private Integer page;
-    private List<T> data;
+public class PageVo<T> implements IPage {
+    private Integer total;
+    private Integer size;
+    private Integer current;
+    private List<T> recordst;
 
-    public Integer getCount() {
-        return count;
+
+    @Override
+    public List getRecords() {
+        return null;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    @Override
+    public IPage setRecords(List list) {
+        return null;
     }
 
-    public Integer getPageSize() {
-        return pageSize;
+    @Override
+    public long getTotal() {
+        return 0;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    @Override
+    public IPage setTotal(long l) {
+        return null;
     }
 
-    public Integer getPage() {
-        return page;
+    @Override
+    public long getSize() {
+        return 0;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
+    @Override
+    public IPage setSize(long l) {
+        return null;
     }
 
-    public List<T> getData() {
-        return data;
+    @Override
+    public long getCurrent() {
+        return 0;
     }
 
-    public void setData(List<T> data) {
-        this.data = data;
+    @Override
+    public IPage setCurrent(long l) {
+        return null;
     }
 }

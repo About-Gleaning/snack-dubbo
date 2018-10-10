@@ -2,6 +2,8 @@ package com.liurui.server;
 
 import com.liurui.entity.UserInfo;
 
+import java.util.List;
+
 /**
  * @ClassName TestServer
  * @Description TODO
@@ -11,4 +13,6 @@ import com.liurui.entity.UserInfo;
 public interface TestServer {
     String sayHello(String str);
     Integer saveUserInfo(UserInfo userInfo);
+
+    List<UserInfo> getList();
 }
