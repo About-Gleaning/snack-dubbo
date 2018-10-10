@@ -1,6 +1,9 @@
 package com.liurui.server.impl;
 
-import com.github.pagehelper.PageHelper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liurui.dao.UserInfoMapper;
 import com.liurui.entity.UserInfo;
 import com.liurui.server.TestServer;
@@ -44,6 +47,9 @@ public class TestServerImpl implements TestServer {
     public List<UserInfo> getList() {
         UserInfo user = userInfoMapper.selectByPrimaryKey("5e7a89031f5a4e859f382f8e4502a79a");
         List<UserInfo> list = userInfoMapper.selectList(null);
+        Wrapper<UserInfo> wrapper = new QueryWrapper<>();
+        List<UserInfo> list1 = userInfoMapper.selectList(new QueryWrapper<UserInfo>().like("name", "liu"));
+        IPage<UserInfo> list2 = userInfoMapper.selectPage(new Page<>(1, 2), null);
         return list;
     }
 
