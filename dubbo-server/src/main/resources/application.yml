@@ -42,6 +42,8 @@ mybatis-plus:
   global-config:
       id-type: 0
       table-prefix: t_
+      #刷新mapper 调试神器
+      refresh: true
 
 
 
