@@ -10,10 +10,12 @@
 |Jackson|||
 |Pagehelper|||
 |Mybatis|||
-|Mybatis Plus|初步集成。[ActiveRecord、逆向生成等待实现](https://www.jianshu.com/p/a4d5d310daf8)||
+|Mybatis Plus|初步集成。代码生成在CodeGenerator中。[ActiveRecord、逆向生成等待实现](https://www.jianshu.com/p/a4d5d310daf8)||
 |Mybatis generator|插件在provider模块下，父项目下运行会报错啊||
 |Junit|还有一套测试组合拳待学习配置||
 |Druid|还没配||
+|Freemark|||
+|Velocity|||
 
 ## 搭建笔记
 **1. 搭建maven项目**
