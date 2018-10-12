@@ -5,6 +5,8 @@ import com.liurui.entity.UserInfo;
 import com.liurui.server.TestServer;
 import com.liurui.utils.ErrorCodeType;
 import com.liurui.utils.ResultBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/test")
 public class TestController {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
     private TestServer testServer;
@@ -57,7 +61,8 @@ public class TestController {
 
     @RequestMapping(value = "/getList")
     public ResultBean getList() {
-         ResultBean resultBean = new ResultBean(ErrorCodeType.DATABASE_ERROR, "保存用户信息失败", null);
+        logger.info("yo yo yo qie ke nao bao");
+        ResultBean resultBean = new ResultBean(ErrorCodeType.DATABASE_ERROR, "保存用户信息失败", null);
         try {
             List<UserInfo> data = testServer.getList();
             resultBean .setErrorInfo(ErrorCodeType.SUCCESS, "保存用户信息成功", data);

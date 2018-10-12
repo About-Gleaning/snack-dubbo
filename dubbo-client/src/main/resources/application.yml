@@ -8,3 +8,8 @@ dubbo:
     name: dubbo-consumer
   registry:
     address: 127.0.0.1:2181
+
+#logback
+logging:
+  config: classpath:log/logback-spring.xml
+  path: /Users/liurui/Workspaces/IntelliJ IDEA/snack-dubbo-log

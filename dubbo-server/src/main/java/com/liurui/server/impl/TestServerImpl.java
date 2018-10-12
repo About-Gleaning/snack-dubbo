@@ -8,7 +8,10 @@ import com.liurui.dao.UserInfoMapper;
 import com.liurui.entity.UserInfo;
 import com.liurui.server.TestServer;
 import com.liurui.utils.UuidUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +27,12 @@ import java.util.List;
 @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
 public class TestServerImpl implements TestServer {
 
+    private static final Logger logger = LoggerFactory.getLogger(TestServerImpl.class);
+
     @Autowired
     private UserInfoMapper userInfoMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public String sayHello(String str) {
@@ -45,11 +52,11 @@ public class TestServerImpl implements TestServer {
 
     @Override
     public List<UserInfo> getList() {
-        UserInfo user = userInfoMapper.selectByPrimaryKey("5e7a89031f5a4e859f382f8e4502a79a");
-        List<UserInfo> list = userInfoMapper.selectList(null);
-        Wrapper<UserInfo> wrapper = new QueryWrapper<>();
-        List<UserInfo> list1 = userInfoMapper.selectList(new QueryWrapper<UserInfo>().like("name", "liu"));
-        IPage<UserInfo> list2 = userInfoMapper.selectPage(new Page<>(1, 2), null);
+        logger.info("yo yo qie ke nao");
+        List<UserInfo> list = userInfoMapper.selectList(new QueryWrapper<UserInfo>());
+        list.stream().forEach(e -> {
+            redisTemplate.opsForValue().set(e.getId(), e.getName());
+        });
         return list;
     }
 

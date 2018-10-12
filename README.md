@@ -4,6 +4,7 @@
 |:---|:---|
 |Dubbo|暂用xml配置接口，后期改@Refrence注解|
 |Spring boot||
+|Redis|单点集成，集群候着||
 |Log4j|待集成||
 |Logback|待集成||
 |Curator|没弄懂||
@@ -16,6 +17,10 @@
 |Druid|还没配||
 |Freemark|||
 |Velocity|||
+
+```$xslt
+中间件，zookeeper，事物待处理
+```
 
 ## 搭建笔记
 **1. 搭建maven项目**
