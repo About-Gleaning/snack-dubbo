@@ -2,13 +2,10 @@
 ## 组件
 |名称|备注|
 |:---|:---|
-|Dubbo|暂用xml配置接口，后期改@Refrence注解|
 |Spring boot||
+|Dubbo|暂用xml配置接口，后期改@Refrence注解|
 |Redis|单点集成，集群候着||
-|Log4j|待集成||
-|Logback|待集成||
 |Curator|没弄懂||
-|Jackson|||
 |Pagehelper|||
 |Mybatis|||
 |Mybatis Plus|初步集成。代码生成在CodeGenerator中。[ActiveRecord、逆向生成等待实现](https://www.jianshu.com/p/a4d5d310daf8)||
@@ -17,9 +14,21 @@
 |Druid|还没配||
 |Freemark|||
 |Velocity|||
+|Netty|||
+|Shiro|||
+|Solr|||
+|Kafka|||
+|mq|||
 
+## 待续 ##
 ```$xslt
-中间件，zookeeper，事物待处理
+RedisTemplate封装，逆向生成模版，
+动态代理，设计模式
+单点登陆
+消息中间件
+配置中心 ，服务治理，
+分布式事物，一致性，缓存分布式一致性，缓存和数据库的一致性，乐观锁，容灾
+定时任务
 ```
 
 ## 搭建笔记
