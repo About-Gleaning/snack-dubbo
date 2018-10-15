@@ -13,6 +13,7 @@
         <module>dubbo-server</module>
         <module>dubbo-api</module>
         <module>dubbo-common</module>
+        <module>dubbo-shiro</module>
     </modules>
 
     <parent>
@@ -27,6 +28,8 @@
         <dubbo.version>2.6.3</dubbo.version>
         <zkclient.version>0.1</zkclient.version>
         <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-collection4.version>4.1</commons-collection4.version>
+        <google-collect.version>1.0</google-collect.version>
         <jackson.version>2.9.3</jackson.version>
         <pagehelper.version>1.2.5</pagehelper.version>
         <mybatis-plus.version>3.0.3</mybatis-plus.version>
@@ -79,6 +82,16 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collection4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.collections</groupId>
+                <artifactId>google-collections</artifactId>
+                <version>${google-collect.version}</version>
             </dependency>
 
             <!--jackson-->

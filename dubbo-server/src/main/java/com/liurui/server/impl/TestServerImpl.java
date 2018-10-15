@@ -52,7 +52,6 @@ public class TestServerImpl implements TestServer {
 
     @Override
     public List<UserInfo> getList() {
-        logger.info("yo yo qie ke nao");
         List<UserInfo> list = userInfoMapper.selectList(new QueryWrapper<UserInfo>());
         list.stream().forEach(e -> {
             redisTemplate.opsForValue().set(e.getId(), e.getName());
