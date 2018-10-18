@@ -9,7 +9,7 @@
 |Pagehelper|||
 |Mybatis|||
 |Mybatis Plus|初步集成。代码生成在CodeGenerator中。[ActiveRecord、逆向生成等待实现](https://www.jianshu.com/p/a4d5d310daf8)||
-|Mybatis generator|插件在provider模块下，父项目下运行会报错啊||
+|Mybatis generator|(不用了)插件在provider模块下，父项目下运行会报错啊||
 |Junit|还有一套测试组合拳待学习配置||
 |Druid|还没配||
 |Freemark|||
@@ -28,7 +28,7 @@ RedisTemplate封装，逆向生成模版，
 消息中间件
 配置中心 ，服务治理，
 分布式事物，一致性，缓存分布式一致性，缓存和数据库的一致性，乐观锁，容灾
-定时任务
+定时任务, 邮件(zookeeper),短信
 ```
 
 ## 搭建笔记
@@ -39,6 +39,8 @@ RedisTemplate封装，逆向生成模版，
 |-- dubbo-api (jar)
 |-- dubbo-client (war)
 |-- dubbo-server (war)
+|-- dubbo-common (jar)
+|-- dubbo-shiro (war)
 ```
 
 **2. pom.xml大概配置**
@@ -58,5 +60,8 @@ mybatis:
     mybatis plus
 ```
 **3. 注意事项**
+```aidl
+1. 代码生成用CodeGenerator类
+```
 
 

@@ -22,12 +22,12 @@ public class CodeGenerator {
     //文件输出位置
     private static final String PROJECT_PATH = "/Users/liurui/Downloads";
     //表名
-    private static final String TABLE_NAME = "t_user_additional_info";
+    private static final String TABLE_NAME = "sys_role";
 
     //模块名(非文件名)
     private static final String MODEL_NAME = "user.additionalInfo";
     //包路径
-    private static final String PACKAGE_PATH = "com.liurui";
+    private static final String PACKAGE_PATH = "com.liurui.sys.user";
 
 
     //数据库地址
@@ -51,10 +51,10 @@ public class CodeGenerator {
         //全局配置
         GlobalConfig gc = new GlobalConfig();
 //        String projectPath = System.getProperty("user.dir");
-        String projectPath = PROJECT_PATH + "/" + TABLE_NAME + "/";
+        String projectPath = PROJECT_PATH + "/" + "codeGenerator " + "/";
         //文件输出位置
 //        gc.setOutputDir(projectPath + "src/main/java")
-        gc.setOutputDir(PROJECT_PATH + "/" + TABLE_NAME + "/src/main/java")
+        gc.setOutputDir(projectPath + "src/main/java")
                 .setAuthor(AUTHOR_NAME)
                 .setOpen(false);
         mpg.setGlobalConfig(gc);
