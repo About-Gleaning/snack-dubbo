@@ -8,7 +8,4 @@ package com.liurui.util.data;
  **/
 public class RedisUtils {
 
-    public void test() {
-        System.out.println("abc");
-    }
 }
