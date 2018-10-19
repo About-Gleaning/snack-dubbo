@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ImportResource;
  * @Date 2018/10/5 下午8:30
  **/
 @SpringBootApplication
-@MapperScan("com.liurui.dao")
+@MapperScan("com.liurui.**.mapper")
 @ImportResource({"classpath:dubbo-provider.xml"})
 public class DubboServerApplication {
 

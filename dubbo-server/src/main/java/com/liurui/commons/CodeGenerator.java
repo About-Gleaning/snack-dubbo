@@ -22,12 +22,12 @@ public class CodeGenerator {
     //文件输出位置
     private static final String PROJECT_PATH = "/Users/liurui/Downloads";
     //表名
-    private static final String TABLE_NAME = "sys_role";
+    private static final String TABLE_NAME = "sys_user_role";
 
     //模块名(非文件名)
-    private static final String MODEL_NAME = "user.additionalInfo";
+    private static final String MODEL_NAME = "base.sys";
     //包路径
-    private static final String PACKAGE_PATH = "com.liurui.sys.user";
+    private static final String PACKAGE_PATH = "com.liurui";
 
 
     //数据库地址
@@ -53,10 +53,11 @@ public class CodeGenerator {
 //        String projectPath = System.getProperty("user.dir");
         String projectPath = PROJECT_PATH + "/" + "codeGenerator " + "/";
         //文件输出位置
-//        gc.setOutputDir(projectPath + "src/main/java")
         gc.setOutputDir(projectPath + "src/main/java")
                 .setAuthor(AUTHOR_NAME)
-                .setOpen(false);
+                .setOpen(false)
+                .setBaseResultMap(true)
+                .setBaseColumnList(true);
         mpg.setGlobalConfig(gc);
 
         //数据源配置
@@ -95,18 +96,18 @@ public class CodeGenerator {
         mpg.setTemplate(new TemplateConfig().setXml(null));
 
         //策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.liurui.base.BaseEntity");
-        strategy.setEntityLombokModel(true);
-        strategy.setRestControllerStyle(true);
-        strategy.setSuperControllerClass("com.liurui.base.BaseController");
-        strategy.setInclude(TABLE_NAME);
-        strategy.setSuperEntityColumns("id");
-        strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
-        strategy.setSuperServiceClass("com.baomidou.mybatisplus.extension.servic.IService");
+        StrategyConfig strategy = new StrategyConfig()
+                .setNaming(NamingStrategy.underline_to_camel)
+                .setColumnNaming(NamingStrategy.underline_to_camel)
+                .setSuperEntityClass("com.liurui.base.BaseEntity")
+                .setEntityLombokModel(true)
+                .setRestControllerStyle(true)
+                .setSuperControllerClass("com.liurui.base.BaseController")
+                .setInclude(TABLE_NAME)
+                .setSuperEntityColumns("id")
+                .setControllerMappingHyphenStyle(true)
+                .setTablePrefix(pc.getModuleName() + "_")
+                .setSuperServiceClass("com.baomidou.mybatisplus.extension.servic.IService");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

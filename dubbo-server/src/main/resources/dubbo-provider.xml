@@ -15,9 +15,10 @@
     <dubbo:protocol name="dubbo" port="30001" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.liurui.server.TestServer" ref="com.liurui.server.impl.TestServerImpl"/>
+    <dubbo:service interface="com.liurui.base.sys.service.ISysRoleService" ref="com.liurui.base.sys.service.impl.SysRoleServiceImpl"/>
+    <dubbo:service interface="com.liurui.base.sys.service.ISysUserService" ref="com.liurui.base.sys.service.impl.SysUserServiceImpl"/>
+    <dubbo:service interface="com.liurui.base.sys.service.ISysUserRoleService" ref="com.liurui.base.sys.service.impl.SysUserRoleServiceImpl"/>
 
-    <!-- 具体服务接口的实现 -->
 
 </beans>
 

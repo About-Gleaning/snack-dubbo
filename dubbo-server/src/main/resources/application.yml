@@ -21,7 +21,7 @@ spring:
       password: liurui
   redis:
     database: 0
-    url: 127.0.0.1
+    host: 127.0.0.1
     port: 6379
     password:
     jedis:
@@ -35,7 +35,7 @@ spring:
         # 连接池中的最小空闲连接
         min-idle: 0
     # 连接超时时间（毫秒）
-    timeout: 500
+    timeout: 5000
 
 #mybatis
 mybatis:
