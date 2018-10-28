@@ -1,7 +1,6 @@
 package com.liurui.base.sys.entity;
 
 import com.liurui.base.BaseEntity;
-import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -12,7 +11,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author liurui
- * @since 2018-10-18
+ * @since 2018-10-25
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -20,6 +19,11 @@ import lombok.experimental.Accessors;
 public class SysRole extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     * ID
+     */
+    private String id;
 
     /**
      * 部门id
@@ -36,50 +40,16 @@ public class SysRole extends BaseEntity {
      */
     private String enname;
 
-    /**
-     * 角色类型
-     */
-    private String roleType;
+    private Integer roleType;
 
-    /**
-     * 数据范围
-     */
-    private String dataScope;
+    private Integer dataScope;
 
     /**
      * 备注
      */
     private String remark;
 
-    /**
-     * 是否可用
-     */
-    private String useable;
-
-    /**
-     * 删除标识
-     */
-    private String delFlag;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
+    private Integer useable;
 
     /**
      * 扩展1

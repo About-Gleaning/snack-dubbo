@@ -1,0 +1,15 @@
+#基础配置
+server:
+  port: 8082
+
+#dubbo配置
+dubbo:
+  application:
+    name: dubbo-shiro
+  registry:
+    address: 127.0.0.1:2181
+
+#logback
+logging:
+  config: classpath:log/logback-spring.xml
+  path: /Users/liurui/Workspaces/IntelliJ IDEA/snack-dubbo-log

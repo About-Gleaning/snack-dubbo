@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户-角色
+ * 用户权限表
  * </p>
  *
  * @author liurui
@@ -16,19 +16,19 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class SysUserRole extends BaseEntity {
+public class SysRolePermission extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户编号
-     */
-    private String userId;
-
-    /**
-     * 角色编号
+     * 角色id
      */
     private String roleId;
+
+    /**
+     * 权限id
+     */
+    private String permissionId;
 
 
 }

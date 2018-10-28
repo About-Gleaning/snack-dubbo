@@ -18,6 +18,8 @@
     <dubbo:service interface="com.liurui.base.sys.service.ISysRoleService" ref="com.liurui.base.sys.service.impl.SysRoleServiceImpl"/>
     <dubbo:service interface="com.liurui.base.sys.service.ISysUserService" ref="com.liurui.base.sys.service.impl.SysUserServiceImpl"/>
     <dubbo:service interface="com.liurui.base.sys.service.ISysUserRoleService" ref="com.liurui.base.sys.service.impl.SysUserRoleServiceImpl"/>
+    <dubbo:service interface="com.liurui.base.sys.service.ISysPermissionService" ref="com.liurui.base.sys.service.impl.SysPermissionServiceImpl"/>
+    <dubbo:service interface="com.liurui.base.sys.service.ISysRolePermissionService" ref="com.liurui.base.sys.service.impl.SysRolePermissionServiceImpl"/>
 
 
 </beans>

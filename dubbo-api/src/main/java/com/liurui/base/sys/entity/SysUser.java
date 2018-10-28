@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author liurui
- * @since 2018-10-18
+ * @since 2018-10-25
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -22,9 +22,19 @@ public class SysUser extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 编号
+     */
+    private String id;
+
+    /**
      * 姓名
      */
     private String name;
+
+    /**
+     * 昵称
+     */
+    private String nickName;
 
     /**
      * 账号
@@ -46,10 +56,7 @@ public class SysUser extends BaseEntity {
      */
     private String positionId;
 
-    /**
-     * 性别
-     */
-    private String sex;
+    private Integer sex;
 
     /**
      * 手机号码
@@ -66,10 +73,7 @@ public class SysUser extends BaseEntity {
      */
     private String photo;
 
-    /**
-     * 状态
-     */
-    private String state;
+    private Integer state;
 
     /**
      * 最近登陆的ip
@@ -81,40 +85,12 @@ public class SysUser extends BaseEntity {
      */
     private LocalDateTime lastTime;
 
-    /**
-     * 是否可登陆
-     */
-    private String loginFlag;
+    private Integer loginFlag;
 
     /**
      * 备注
      */
     private String remark;
-
-    /**
-     * 删除标示
-     */
-    private String delFlag;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
 
     /**
      * 扩展1

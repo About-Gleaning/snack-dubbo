@@ -15,4 +15,6 @@
     <dubbo:reference id="sysRoleService" interface="com.liurui.base.sys.service.ISysRoleService" check="false" registry="zookeeper" protocol="dubbo" timeout="15000"/>
     <dubbo:reference id="sysUserService" interface="com.liurui.base.sys.service.ISysUserService" check="false" registry="zookeeper" protocol="dubbo" timeout="15000"/>
     <dubbo:reference id="sysUserRoleService" interface="com.liurui.base.sys.service.ISysUserRoleService" check="false" registry="zookeeper" protocol="dubbo" timeout="15000"/>
+    <dubbo:reference id="sysPermissionService" interface="com.liurui.base.sys.service.ISysPermissionService" check="false" registry="zookeeper" protocol="dubbo" timeout="15000"/>
+    <dubbo:reference id="sysRolePermissionService" interface="com.liurui.base.sys.service.ISysRolePermissionService" check="false" registry="zookeeper" protocol="dubbo" timeout="15000"/>
 </beans>
