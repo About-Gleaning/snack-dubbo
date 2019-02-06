@@ -43,6 +43,13 @@
         <druid.version>1.1.9</druid.version>
         <velocity.version>1.7</velocity.version>
         <shiro.version>1.2.4</shiro.version>
+        <fastjson.version>1.2.54</fastjson.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <json-lib.verison>2.4</json-lib.verison>
+        <commons-logging.version>1.1.1</commons-logging.version>
+        <ezmorph.version>1.0.6</ezmorph.version>
 
         <mybatis-generator-maven-plugin.version>1.3.5</mybatis-generator-maven-plugin.version>
         <jetty-maven-plugin.version>7.6.8.v20121106</jetty-maven-plugin.version>
@@ -94,27 +101,15 @@
                 <artifactId>google-collections</artifactId>
                 <version>${google-collect.version}</version>
             </dependency>
-
-            <!--jackson-->
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-parameter-names</artifactId>
-                <version>${jackson.version}</version>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
             </dependency>
 
             <!--分页插件-->

@@ -19,8 +19,8 @@ import javax.annotation.Resource;
  **/
 public class SysRealm extends AuthorizingRealm {
 
-//    @Resource
-//    private ISysUserService sysUserService;
+    @Resource
+    private ISysUserService sysUserService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -37,26 +37,25 @@ public class SysRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-//        //获取账号
-////        UsernamePasswordToken
-//        String account = String.valueOf(authenticationToken.getPrincipal());
-//        //获取账号对象SysUser
-//        SysUser user = sysUserService.getByAccount(account);
-//        if (null == user) {
-//            throw new AccountException("用户名不存在");
-//        }
-//        if (user.getLoginFlag().equals(LoginFlag.NOT_ALLOW.getVal())) {
-//            throw new AccountException("禁止登陆");
-//        }
-//        if (!user.getPassword().equals(authenticationToken.getCredentials())) {
-//            throw new AccountException("密码错误");
-//        }
-//        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-//                user.getAccount(),
-//                user.getPassword(),
-//                user.getNickName());
-//        return authenticationInfo;
-        return null;
+        //获取账号
+//        UsernamePasswordToken
+        String account = String.valueOf(authenticationToken.getPrincipal());
+        //获取账号对象SysUser
+        SysUser user = sysUserService.getByAccount(account);
+        if (null == user) {
+            throw new AccountException("用户名不存在");
+        }
+        if (user.getLoginFlag().equals(LoginFlag.NOT_ALLOW.getVal())) {
+            throw new AccountException("禁止登陆");
+        }
+        if (!user.getPassword().equals(new String((char[]) authenticationToken.getCredentials()))) {
+            throw new AccountException("密码错误");
+        }
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
+                user.getAccount(),
+                user.getPassword(),
+                user.getNickName());
+        return authenticationInfo;
     }
 
 }

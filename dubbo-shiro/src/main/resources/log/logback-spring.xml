@@ -187,9 +187,9 @@
     <springProfile name="dev">
 
     </springProfile>
-    <logger name="com.xxxx.xxxx.mapper" level="debug">
-        <appender-ref ref="CONSOLE" />
-    </logger>
+    <!--<logger name="com.xxxx.xxxx.mapper" level="debug">-->
+        <!--<appender-ref ref="CONSOLE" />-->
+    <!--</logger>-->
 
     <root level="info">
         <appender-ref ref="CONSOLE" />

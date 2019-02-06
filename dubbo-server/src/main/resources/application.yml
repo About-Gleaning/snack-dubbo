@@ -16,7 +16,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       druid-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/snack?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+      url: jdbc:mysql://127.0.0.1:3306/snack?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: liurui
   redis:
@@ -65,6 +65,8 @@ mybatis-plus:
       table-prefix: t_
       #刷新mapper 调试神器
       refresh: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #logback
 logging:

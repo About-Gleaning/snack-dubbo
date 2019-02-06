@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @ClassName PPTUtils
- * @Description TODO
+ * @Description ppt转图片
  * @Author liurui
  * @Date 2019/1/3 9:46 AM
  **/

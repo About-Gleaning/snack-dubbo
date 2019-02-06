@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @Date 2018/10/19 下午3:31
  **/
 //public class SessionManager extends DefaultWebSessionManager {
-
+//
 //    private static final String AUTHORIZATION = "Authorization";
 //
 //    private static final String REFERENCED_SESSION_ID_SOURCE = "Stateless request";
