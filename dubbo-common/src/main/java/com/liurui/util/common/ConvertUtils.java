@@ -2,8 +2,8 @@ package com.liurui.util.common;
 
 import com.google.common.collect.Maps;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -13,6 +13,11 @@ import java.util.Map;
  * @Date 2018/10/12 下午5:31
  **/
 public class ConvertUtils {
+
+    //Suppress default constructor for noninstantiability
+    private ConvertUtils() {
+        throw new AssertionError();
+    }
 
     /**
      * 对象转map
@@ -27,11 +32,16 @@ public class ConvertUtils {
             Map<String, Object> map = Maps.newHashMap();
             Field[] fields = obj.getClass().getDeclaredFields();
             for (Field field : fields) {
-                map.put(field.getName(), field.get(obj));
-
+                Method method = obj.getClass().getMethod("get" + StringUtils.firstCharToUpperCase(field.getName()));
+                Object value = method.invoke(obj);
+                map.put(field.getName(), value);
             }
             return map;
         } catch (IllegalAccessException e) {
+            return null;
+        } catch (NoSuchMethodException e) {
+            return null;
+        } catch (InvocationTargetException e) {
             return null;
         }
     }
@@ -65,5 +75,47 @@ public class ConvertUtils {
         }
     }
 
+
+    /**
+     * 对象转对象
+     * @param source
+     * @param target
+     * @param <T>
+     * @return
+     * @throws Exception
+     */
+    public static <T> T obj2Obj(Object source, Class<T> target) throws Exception {
+        if (null == source || null == target) {
+            throw new NullPointerException();
+        }
+        try {
+            Object obj = target.newInstance();
+            Field[] fields = target.getDeclaredFields();
+            for (Field field : fields) {
+                if (Modifier.isStatic(field.getModifiers()) || Modifier.isFinal(field.getModifiers()) || "ids".equals(field.getName())) {
+                    continue;
+                }
+                String getMethodName = "get" + StringUtils.firstCharToUpperCase(field.getName());
+                String setMethodName = "set" + StringUtils.firstCharToUpperCase(field.getName());
+                try {
+                    Method getMethod = source.getClass().getMethod(getMethodName);
+                    Object data = getMethod.invoke(source);
+                    Type type = field.getGenericType();
+                    String a = type.toString();
+                    String b = a.replace("class ", "");
+                    Class.forName(b);
+                    Method setMethod = target.getMethod(setMethodName, Class.forName(type.toString().replace("class ", "")));
+                    setMethod.invoke(obj, data);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    continue;
+                }
+            }
+            return (T) obj;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            throw new InstantiationException();
+        }
+    }
 
 }

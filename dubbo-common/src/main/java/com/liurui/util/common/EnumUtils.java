@@ -1,7 +1,6 @@
-package com.liurui.utils;
+package com.liurui.util.common;
 
 import java.lang.reflect.Method;
-import java.util.EnumSet;
 
 /**
  * @ClassName EnumUtils
@@ -10,6 +9,11 @@ import java.util.EnumSet;
  * @Date 2018/10/19 下午4:16
  **/
 public class EnumUtils {
+
+    //Suppress default constructor for noninstantiability
+    private EnumUtils() {
+        throw new AssertionError();
+    }
 
     /**
      * 字符取值
