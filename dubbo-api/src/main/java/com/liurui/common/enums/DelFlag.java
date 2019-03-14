@@ -1,4 +1,4 @@
-package com.liurui.utils.enums;
+package com.liurui.common.enums;
 
 /**
  * 删除

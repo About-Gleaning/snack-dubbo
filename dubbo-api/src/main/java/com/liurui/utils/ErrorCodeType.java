@@ -6,9 +6,12 @@ package com.liurui.utils;
  * @Date 上午8:46 2018/10/7
  **/
 public enum ErrorCodeType {
-    SUCCESS(0), //成功
-    SYSTEM_ERROR(100),    //系统异常
-    DATABASE_ERROR(200);  //数据库异常
+    //成功
+    SUCCESS(0),
+    //系统异常
+    SYSTEM_ERROR(100),
+    //数据库异常
+    DATABASE_ERROR(200);
 
     private Integer value;
 
