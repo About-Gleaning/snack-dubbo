@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * @ClassName CodeGenerator
  * @Description 代码生成器
+ * 多表生成时，表名之间用逗号隔开（模块名有待优化）。
  * @Author liurui
  * @Date 2018/10/11 上午10:10
  **/
@@ -23,10 +24,10 @@ public class CodeGenerator {
     //文件输出位置
     private static final String PROJECT_PATH = "/Users/liurui/Downloads";
     //表名
-    private static final String TABLE_NAME_LIST = "sys_user_role,sys_user,sys_role,sys_permission,sys_role_permission";
+    private static final String TABLE_NAME_LIST = "sys_user";
 
     //模块名(非文件名)
-    private static final String MODEL_NAME = "base.sys";
+    private static final String MODEL_NAME = "base.sys.user";
     //包路径
     private static final String PACKAGE_PATH = "com.liurui";
 
