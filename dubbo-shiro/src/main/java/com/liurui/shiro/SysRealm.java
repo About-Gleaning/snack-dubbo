@@ -1,13 +1,12 @@
 package com.liurui.shiro;
 
-import com.liurui.base.sys.entity.SysUser;
-import com.liurui.base.sys.enums.LoginFlag;
-import com.liurui.base.sys.service.ISysUserService;
+import com.liurui.common.enums.LoginFlag;
+import com.liurui.sys.user.entity.User;
+import com.liurui.sys.user.service.IUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 
@@ -20,7 +19,7 @@ import javax.annotation.Resource;
 public class SysRealm extends AuthorizingRealm {
 
     @Resource
-    private ISysUserService sysUserService;
+    private IUserService sysUserService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -41,7 +40,7 @@ public class SysRealm extends AuthorizingRealm {
 //        UsernamePasswordToken
         String account = String.valueOf(authenticationToken.getPrincipal());
         //获取账号对象SysUser
-        SysUser user = sysUserService.getByAccount(account);
+        User user = sysUserService.getByAccount(account);
         if (null == user) {
             throw new AccountException("用户名不存在");
         }

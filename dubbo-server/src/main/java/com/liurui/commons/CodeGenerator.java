@@ -33,6 +33,8 @@ public class CodeGenerator {
     private static final String MODEL_NAME = "user";
     //包路径
     private static final String PACKAGE_PATH = "com.liurui.sys";
+    //mapper.xml路径(resources/mapper之后的路径)
+    private static final String MAPPER_XML_PATH = "sys/user";
 
 
     //数据库地址
@@ -104,7 +106,7 @@ public class CodeGenerator {
                 @Override
                 public String outputFile(TableInfo tableInfo) {
                     //自定义输入文件名称
-                    return projectPath + "src/main/resources/mapper/" + pc.getParent().replace(".", "/") + pc.getModuleName()
+                    return projectPath + "src/main/resources/mapper/" + MAPPER_XML_PATH
                             + "/" + tableInfo.getEntityName().replaceFirst("Sys", "") + "Mapper" + StringPool.DOT_XML;
                 }
             });
@@ -140,7 +142,7 @@ public class CodeGenerator {
                     .setSuperEntityColumns("create_by", "create_time", "update_by", "update_time", "del_flag")
 //                    .setSuperEntityColumns(new String[]{})
                     .setTablePrefix(PREFIX)
-                    .setSuperServiceClass("com.baomidou.mybatisplus.extension.servic.IService");
+                    .setSuperServiceClass("com.baomidou.mybatisplus.extension.service.IService");
             mpg.setStrategy(strategy);
             mpg.setTemplateEngine(new FreemarkerTemplateEngine());
 
