@@ -26,10 +26,13 @@ public class CodeGenerator {
     //表名
     private static final String TABLE_NAME_LIST = "sys_user";
 
+    //文件去掉的前缀
+    private static final String PREFIX = "sys_";
+
     //模块名(非文件名)
-    private static final String MODEL_NAME = "base.sys.user";
+    private static final String MODEL_NAME = "user";
     //包路径
-    private static final String PACKAGE_PATH = "com.liurui";
+    private static final String PACKAGE_PATH = "com.liurui.sys";
 
 
     //数据库地址
@@ -58,7 +61,6 @@ public class CodeGenerator {
 
             //全局配置
             GlobalConfig gc = new GlobalConfig();
-//        String projectPath = System.getProperty("user.dir");
             String projectPath = PROJECT_PATH + "/" + "codeGenerator " + "/";
             //文件输出位置
             gc.setOutputDir(projectPath + "src/main/java")
@@ -90,18 +92,40 @@ public class CodeGenerator {
                     //to do nothing
                 }
             };
+
+            // 如果模版引擎是  freemarker
+            String templatePath = "/templates/mapper.xml.ftl";
+            // 如果模版引擎是  velocity
+//            String templatePath = "/templates/mapper.xml.vm";
+
             List<FileOutConfig> focList = new ArrayList<>();
-            focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+            // 自定义配置会被优先输出
+            focList.add(new FileOutConfig(templatePath) {
                 @Override
                 public String outputFile(TableInfo tableInfo) {
                     //自定义输入文件名称
-                    return projectPath + "src/main/resources/mapper/" + pc.getModuleName()
-                            + "/" + tableInfo.getEntityName().replaceFirst("t_", "") + "Mapper" + StringPool.DOT_XML;
+                    return projectPath + "src/main/resources/mapper/" + pc.getParent().replace(".", "/") + pc.getModuleName()
+                            + "/" + tableInfo.getEntityName().replaceFirst("Sys", "") + "Mapper" + StringPool.DOT_XML;
                 }
             });
+
             cfg.setFileOutConfigList(focList);
             mpg.setCfg(cfg);
-            mpg.setTemplate(new TemplateConfig().setXml(null));
+
+            //  配置模版
+            TemplateConfig templateConfig = new TemplateConfig();
+            //  配置自定义输出模版
+            //  指定自定义模版路径，注意不要带上.ftl/.vm，会根据使用的模版引擎自动识别
+            //  以下任何一个模块如果设置 空 OR Null 将不生成该模块。
+            //  自定义模板配置，可以 copy 源码 mybatis-plus/src/main/resources/templates 下面内容修改，
+//            templateConfig.setEntity("templates/entity2.java");
+//            templateConfig.setService("...");
+//            templateConfig.setController("...");
+//            templateConfig.setServiceImpl("...");
+//            templateConfig.setXml("...");
+//            templateConfig.setMapper("...");
+//            templateConfig.setXml("...");
+            mpg.setTemplate(templateConfig);
 
             //策略配置
             StrategyConfig strategy = new StrategyConfig()
@@ -115,22 +139,10 @@ public class CodeGenerator {
                     .setControllerMappingHyphenStyle(true)
                     .setSuperEntityColumns("create_by", "create_time", "update_by", "update_time", "del_flag")
 //                    .setSuperEntityColumns(new String[]{})
-                    .setTablePrefix(pc.getModuleName() + "_")
+                    .setTablePrefix(PREFIX)
                     .setSuperServiceClass("com.baomidou.mybatisplus.extension.servic.IService");
             mpg.setStrategy(strategy);
             mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-
-            // 自定义模板配置，可以 copy 源码 mybatis-plus/src/main/resources/templates 下面内容修改，
-//            String templatePath = System.getProperty("user.dir") + "/dubbo-server/src/main/resources/template/";
-//            TemplateConfig tc = new TemplateConfig();
-//            tc.setController("/template/controller.java.ftl");
-            // tc.setEntity("...");
-            // tc.setMapper("...");
-            // tc.setXml("...");
-            // tc.setService("...");
-            // tc.setServiceImpl("...");
-            // 如上任何一个模块如果设置 空 OR Null 将不生成该模块。
-//            mpg.setTemplate(tc);
 
             mpg.execute();
         }
