@@ -1,4 +1,4 @@
-package com.liurui.sys.user.controller;
+package com.liurui.base.sys.user.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
