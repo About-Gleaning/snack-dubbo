@@ -1,10 +1,13 @@
 package com.liurui.sys.user.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.liurui.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>
@@ -22,7 +25,8 @@ public class User extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private String ids;
+    @TableId("id")
+    private String id;
 
     /**
      * 账号
@@ -74,5 +78,13 @@ public class User extends BaseEntity {
      */
     private Integer loginFlag;
 
+    public static boolean vailData(User user) {
+        boolean flag = true;
+        if (StringUtils.isBlank(user.getAccount()))
+            flag = false;
+        if (StringUtils.isBlank(user.getPassword()))
+            flag = false;
+        return flag;
+    }
 
 }

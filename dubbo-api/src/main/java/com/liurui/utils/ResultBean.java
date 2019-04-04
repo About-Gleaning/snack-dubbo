@@ -19,10 +19,22 @@ public class ResultBean implements Serializable {
 
     private Object data;
 
-    public ResultBean(ErrorCodeType errorCode, String message, Object data) {
+    private ResultBean() {
+        this.errorCode = ErrorCodeType.SUCCESS;
+    }
+
+    private ResultBean(ErrorCodeType errorCode, String message, Object data) {
         this.errorCode = errorCode;
         this.message = message;
         this.data = data;
+    }
+
+    public static ResultBean getInstance() {
+        return new ResultBean();
+    }
+
+    public static ResultBean getInstance(ErrorCodeType errorCode, String message, Object data) {
+        return new ResultBean(errorCode, message, data);
     }
 
     public void setErrorInfo(ErrorCodeType errorCode, String message, Object data) {
@@ -31,4 +43,27 @@ public class ResultBean implements Serializable {
         this.data = data;
     }
 
+    public ErrorCodeType getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(ErrorCodeType errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
 }

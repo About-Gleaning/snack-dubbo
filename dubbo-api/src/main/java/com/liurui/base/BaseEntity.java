@@ -77,4 +77,5 @@ public abstract class BaseEntity<T> implements Serializable {
     public void setDelFlag(Integer delFlag) {
         this.delFlag = delFlag;
     }
+
 }

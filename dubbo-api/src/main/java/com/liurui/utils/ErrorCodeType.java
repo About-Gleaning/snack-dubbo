@@ -8,6 +8,9 @@ package com.liurui.utils;
 public enum ErrorCodeType {
     //成功
     SUCCESS(0),
+    //操作失败
+    FAILED(10),
+    MISSING_PASSWORD(11),
     //系统异常
     SYSTEM_ERROR(100),
     //数据库异常
