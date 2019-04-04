@@ -2,7 +2,6 @@ package com.liurui.sys.user.service;
 
 import com.liurui.sys.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.liurui.utils.ResultBean;
 
 /**
  * <p>

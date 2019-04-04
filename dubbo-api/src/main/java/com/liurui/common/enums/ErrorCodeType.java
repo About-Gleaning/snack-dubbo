@@ -1,4 +1,4 @@
-package com.liurui.utils;
+package com.liurui.common.enums;
 
 /**
  * @Author liurui

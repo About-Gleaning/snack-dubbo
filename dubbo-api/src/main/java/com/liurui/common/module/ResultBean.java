@@ -1,5 +1,6 @@
-package com.liurui.utils;
+package com.liurui.common.module;
 
+import com.liurui.common.enums.ErrorCodeType;
 import lombok.Data;
 
 import java.io.Serializable;

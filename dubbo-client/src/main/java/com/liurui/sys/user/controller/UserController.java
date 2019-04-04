@@ -1,16 +1,14 @@
 package com.liurui.sys.user.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.liurui.base.BaseController;
 import com.liurui.sys.user.entity.User;
 import com.liurui.sys.user.service.IUserService;
-import com.liurui.utils.ErrorCodeType;
-import com.liurui.utils.ResultBean;
+import com.liurui.common.enums.ErrorCodeType;
+import com.liurui.common.module.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

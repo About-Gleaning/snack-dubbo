@@ -1,4 +1,4 @@
-package com.liurui.utils;
+package com.liurui.common.module;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
