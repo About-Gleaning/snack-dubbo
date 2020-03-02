@@ -1,4 +1,4 @@
-package com.liurui.util.common;
+package com.liurui.util.common.office;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hslf.usermodel.*;
@@ -14,12 +14,17 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 /**
- * @ClassName PPTUtils
+ * @ClassName
  * @Description ppt转图片
  * @Author liurui
  * @Date 2019/1/3 9:46 AM
  **/
 public class PPTUtils {
+
+    //Suppress default constructor for noninstantiability
+    private PPTUtils() {
+        throw new AssertionError();
+    }
 
     private static final String[] IMG_TYPE_LIST = {"jpeg", "png"};
     private static final String pptPath = "/Users/liurui/Downloads/共享空间/1Course.ppt";

@@ -2,6 +2,7 @@ package com.liurui.sys.user.mapper;
 
 import com.liurui.sys.user.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>

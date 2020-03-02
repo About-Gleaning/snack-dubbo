@@ -1,13 +1,15 @@
 package com.liurui.sys.user.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.liurui.base.BaseEntity;
+import com.liurui.base.BaseUserEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.apache.commons.lang3.StringUtils;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -21,22 +23,12 @@ import org.apache.commons.lang3.StringUtils;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("sys_user")
-public class User extends BaseEntity {
+public class User extends BaseUserEntity {
 
     private static final long serialVersionUID = 1L;
 
     @TableId("id")
     private String id;
-
-    /**
-     * 账号
-     */
-    private String account;
-
-    /**
-     * 密码
-     */
-    private String password;
 
     /**
      * 姓名
@@ -77,6 +69,32 @@ public class User extends BaseEntity {
      * 登陆标识。0禁止，1允许
      */
     private Integer loginFlag;
+
+    /**
+     * 创建人
+     */
+    private String createBy;
+
+    /**
+     * 创建时间
+     */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新人
+     */
+    private String updateBy;
+
+    /**
+     * 更新时间
+     */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
+    /**
+     * 删除标识
+     */
+    private Integer delFlag;
 
     public static boolean vailData(User user) {
         boolean flag = true;

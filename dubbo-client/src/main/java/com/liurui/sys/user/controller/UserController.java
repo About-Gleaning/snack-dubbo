@@ -1,13 +1,11 @@
 package com.liurui.sys.user.controller;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.liurui.base.BaseController;
-import com.liurui.sys.user.entity.User;
-import com.liurui.sys.user.service.IUserService;
 import com.liurui.common.enums.ErrorCodeType;
 import com.liurui.common.module.ResultBean;
+import com.liurui.sys.user.entity.User;
+import com.liurui.sys.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,36 +26,23 @@ public class UserController extends BaseController {
     private IUserService userService;
 
     @RequestMapping("/getByAccount")
-    public ResultBean getByAccount() {
+    public ResultBean getByAccount(String account) {
         ResultBean resultBean = ResultBean.getInstance();
-        ObjectMapper mapper = new ObjectMapper();
-
-        User user = userService.getByAccount("");
-        try {
-            String jsonStr = mapper.writeValueAsString(user);
-            resultBean.setData(user);
-//            return jsonStr;
-        } catch (JsonProcessingException e) {
-            resultBean.setErrorCode(ErrorCodeType.SYSTEM_ERROR);
-        }
+        User user = userService.getByAccount(account);
+        resultBean.setData(user);
         return resultBean;
     }
 
     @RequestMapping("/save")
     public ResultBean save(User user) {
-        ResultBean resultBean = ResultBean.getInstance();
+        ResultBean resultBean = null;
         if (!User.vailData(user)) {
+            resultBean = ResultBean.getInstance();
             resultBean.setErrorCode(ErrorCodeType.MISSING_PASSWORD);
             resultBean.setMessage("缺少参数");
             return resultBean;
         }
-        boolean result = userService.saveUser(user);
-        if (result) {
-            return resultBean;
-        } else {
-            resultBean.setErrorCode(ErrorCodeType.SYSTEM_ERROR);
-            return resultBean;
-        }
+        return userService.saveUser(user);
     }
 
 }

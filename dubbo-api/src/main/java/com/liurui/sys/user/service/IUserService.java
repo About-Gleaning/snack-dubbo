@@ -1,5 +1,6 @@
 package com.liurui.sys.user.service;
 
+import com.liurui.common.module.ResultBean;
 import com.liurui.sys.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -15,5 +16,5 @@ public interface IUserService extends IService<User> {
 
     User getByAccount(String account);
 
-    int saveUser(User user);
+    ResultBean saveUser(User user);
 }

@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 public class SysRealm extends AuthorizingRealm {
 
     @Resource
-    private IUserService sysUserService;
+    private IUserService userService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -40,7 +40,7 @@ public class SysRealm extends AuthorizingRealm {
 //        UsernamePasswordToken
         String account = String.valueOf(authenticationToken.getPrincipal());
         //获取账号对象SysUser
-        User user = sysUserService.getByAccount(account);
+        User user = userService.getByAccount(account);
         if (null == user) {
             throw new AccountException("用户名不存在");
         }

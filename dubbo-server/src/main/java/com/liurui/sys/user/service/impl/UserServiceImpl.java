@@ -2,6 +2,8 @@ package com.liurui.sys.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liurui.common.enums.ErrorCodeType;
+import com.liurui.common.module.ResultBean;
 import com.liurui.sys.user.entity.User;
 import com.liurui.sys.user.mapper.UserMapper;
 import com.liurui.sys.user.service.IUserService;
@@ -17,9 +19,6 @@ import org.springframework.stereotype.Service;
  */
 @Service("com.liurui.sys.user.service.impl.UserServiceImpl")
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
-
-    //帐号已存在
-    private static final int ACCOUNT_EXISTS = 1;
 
     /**
      * 通过account查询用户
@@ -39,11 +38,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * @return
      */
     @Override
-    public int saveUser(User user) {
+    public ResultBean saveUser(User user) {
+        ResultBean resultBean = ResultBean.getInstance(ErrorCodeType.FAILED, null, null);
         if (null == this.getByAccount(user.getAccount())) {
             if (this.save(user)) {
+                resultBean.setErrorCode(ErrorCodeType.SUCCESS);
+                return resultBean;
             }
+            resultBean.setMessage("保存失败");
+            return resultBean;
         }
-        return 1;
+        resultBean.setMessage("帐号已存在");
+        return resultBean;
     }
 }
