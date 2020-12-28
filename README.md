@@ -23,7 +23,8 @@
 ## 待续 ##
 ```$xslt
 国际化
-RedisTemplate封装，逆向生成模版，
+~~~RedisTemplate封装，逆向生成模版~~~，
+Retrofit
 各种连接池（redis，数据库），线程池
 动态代理，设计模式
 单点登陆
